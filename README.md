@@ -91,4 +91,6 @@ FreshJuiceTest 是包含 main 方法的公共类，是程序的入口点。
 然后，使用枚举类 FreshJuiceSize 的常量 MEDIUM 来给 juice 的 size 变量赋值。
 */
 ```
+
+###  Java 源程序与编译型运行区别
 ![](img/2.png)
