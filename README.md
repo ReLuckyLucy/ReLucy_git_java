@@ -265,3 +265,83 @@ public class Puppy{
 ```
 小狗的名字是 : tommy
 ```
+### 示例
+
+下面的例子展示如何访问实例变量和调用成员方法：
+
+```
+public class Puppy {
+    private int age;
+    private String name;
+ 
+    // 构造器
+    public Puppy(String name) {
+        this.name = name;
+        System.out.println("小狗的名字是 : " + name);
+    }
+ 
+    // 设置 age 的值
+    public void setAge(int age) {
+        this.age = age;
+    }
+ 
+    // 获取 age 的值
+    public int getAge() {
+        return age;
+    }
+ 
+    // 获取 name 的值
+    public String getName() {
+        return name;
+    }
+ 
+    // 主方法
+    public static void main(String[] args) {
+        // 创建对象
+        Puppy myPuppy = new Puppy("Tommy");
+ 
+        // 通过方法来设定 age
+        myPuppy.setAge(2);
+ 
+        // 调用另一个方法获取 age
+        int age = myPuppy.getAge();
+        System.out.println("小狗的年龄为 : " + age);
+ 
+        // 也可以直接访问成员变量（通过 getter 方法）
+        System.out.println("变量值 : " + myPuppy.getAge());
+    }
+}
+```
+
+编译并运行上面的程序，产生如下结果：
+
+```
+小狗的名字是 : tommy
+小狗的年龄为 : 2
+变量值 : 2
+```
+
+### 源文件声明规则
+
+在本节的最后部分，我们将学习源文件的声明规则。当在一个源文件中定义多个类，并且还有import语句和package语句时，要特别注意这些规则。
+
+* 一个源文件中只能有一个 public 类
+* 一个源文件可以有多个非 public 类
+* 源文件的名称应该和 public 类的类名保持一致。例如：源文件中 public 类的类名是 Employee，那么源文件应该命名为Employee.java。
+* 如果一个类定义在某个包中，那么 package 语句应该在源文件的首行。
+* 如果源文件包含 import 语句，那么应该放在 package 语句和类定义之间。如果没有 package 语句，那么 import 语句应该在源文件中最前面。
+* import 语句和 package 语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。
+
+### Java 包
+
+包主要用来对类和接口进行分类。当开发 Java 程序时，可能编写成百上千的类，因此很有必要对类和接口进行分类。
+
+### import 语句
+
+在 Java 中，如果给出一个完整的限定名，包括包名、类名，那么 Java 编译器就可以很容易地定位到源代码或者类。import 语句就是用来提供一个合理的路径，使得编译器可以找到某个类。
+
+例如，下面的命令行将会命令编译器载入 java_installation/java/io 路径下的所有类
+
+```
+import java.io.*;
+```
