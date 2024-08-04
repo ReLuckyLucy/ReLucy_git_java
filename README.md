@@ -97,15 +97,73 @@ FreshJuiceTest 是包含 main 方法的公共类，是程序的入口点。
 
 ## Java 对象和类
 Java作为一种面向对象语言。支持以下基本概念：
-- 多态
-- 继承
-- 封装
-- 抽象
-- 类
-- 对象
-- 实例
-- 方法
-- 重载
+Java 作为一种面向对象的编程语言，支持以下基本概念：
+
+1、 **类（Class）**：
+
+* 定义对象的蓝图，包括属性和方法。
+* 示例： `public class Car { ... }`
+
+**2、对象（Object）**：
+
+* 类的实例，具有状态和行为。
+* 示例： `Car myCar = new Car();`
+
+**3、继承（Inheritance）**：
+
+* 一个类可以继承另一个类的属性和方法。
+* 示例： `public class Dog extends Animal { ... }`
+
+**4、封装（Encapsulation）**：
+
+* 将对象的状态（字段）私有化，通过公共方法访问。
+* 示例：
+
+```
+private String name;
+public String getName() { return name; }
+```
+
+**5、多态（Polymorphism）**：
+
+* 对象可以表现为多种形态，主要通过方法重载和方法重写实现。
+* 示例：
+  - 方法重载： `public int add(int a, int b) { ... }` 和 `public double add(double a, double b) { ... }`
+  - 方法重写： `@Override public void makeSound() { System.out.println("Meow"); }`
+
+**6、抽象（Abstraction）**：
+
+* 使用抽象类和接口来定义必须实现的方法，不提供具体实现。
+* 示例：
+  - 抽象类： `public abstract class Shape { abstract void draw(); }`
+  - 接口： `public interface Animal { void eat(); }`
+
+**7、接口（Interface）**：
+
+* 定义类必须实现的方法，支持多重继承。
+* 示例： `public interface Drivable { void drive(); }`
+
+**8、方法（Method）**：
+
+* 定义类的行为，包含在类中的函数。
+* 示例： `public void displayInfo() { System.out.println("Info"); }`
+
+**9、方法重载（Method Overloading）**：
+
+* 同一个类中可以有多个同名的方法，但参数不同。
+* 示例：
+
+```
+public class MathUtils {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+```
 
 本节我们重点研究对象和类的概念。
 
@@ -159,4 +217,51 @@ public class Puppy{
     }
 }
 ```
-1
+
+### 创建对象
+
+对象是根据类创建的。在Java中，使用关键字 new 来创建一个新的对象。创建对象需要以下三步：
+
+* **声明**：声明一个对象，包括对象名称和对象类型。
+* **实例化**：使用关键字 new 来创建一个对象。
+* **初始化**：使用 new 创建对象时，会调用构造方法初始化对象。
+
+下面是一个创建对象的例子：
+```
+public class Puppy{
+
+   public Puppy(String name){
+
+      //这个构造器仅有一个参数：name
+
+      System.out.println("小狗的名字是 : " + name ); 
+   }
+   public static void main(String[] args){
+
+      // 下面的语句将创建一个Puppy对象
+      
+      Puppy myPuppy = new Puppy( "tommy" );
+   }
+}
+```
+
+>public class Puppy { ... }：这行代码定义了一个名为Puppy的公共类。在Java中，一切都是对象，而类就是用来创建对象的蓝图。
+
+>public Puppy(String name) { ... }：这是Puppy类的一个构造方法。它和类名相同，用来初始化新创建的对象。它接受一个参数name，这个参数用来给小狗命名。
+
+>System.out.println("小狗的名字是 : " + name );：这行代码会打印出小狗的名字。System.out.println是一个用来在控制台输出文本的方法。
+
+>public static void main(String[] args) { ... }：这是Java程序的入口点，也就是程序开始运行的地方。main方法必须存在于每个Java程序中。
+
+>Puppy myPuppy = new Puppy("tommy");：这行代码做了三件事情：
+
+>声明：告诉Java，我们要创建一个名为myPuppy的变量，它的类型是Puppy。
+>实例化：使用new关键字来根据Puppy类的模板创建一个新对象。
+>初始化：调用Puppy类的构造方法，并传入字符串"tommy"作为参数，这样创建的小狗对象就有了名字tommy。 
+
+
+编译并运行上面的程序，会打印出下面的结果：
+
+```
+小狗的名字是 : tommy
+```
